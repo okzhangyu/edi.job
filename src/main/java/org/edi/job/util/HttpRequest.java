@@ -29,10 +29,11 @@ public class HttpRequest {
             HttpPost httpPost = new HttpPost(url);
             Gson gson = new Gson();
             HttpResponse httpResponse;
-            httpPost.addHeader("content-type", "application/json");
+            httpPost.addHeader("content-type", "application/json;charset=utf-8");
             httpPost.addHeader("Accept", "application/json");
             StringEntity entity = new StringEntity(requestJson);
             httpPost.setEntity(entity);
+            //httpClient.getParams().setParameter(HttpMethodParams.HTTP_CONTENT_CHARSET, "UTF-8");
             httpResponse = httpClient.execute(httpPost);
             String response = EntityUtils.toString(httpResponse.getEntity());
             return response;

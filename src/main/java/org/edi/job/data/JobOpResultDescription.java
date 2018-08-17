@@ -10,9 +10,9 @@ public class JobOpResultDescription extends OpResultDescription {
 
     public final static String SBO_GET_ORDERS = "获取到%d条未清任务汇报";
 
-    public final static String SBO_CREATE_ORDER_SUCCESS_INFO= "[%1$d]号任务汇报生成成功，B1单据号[%2$s]";
+    public final static String SBO_CREATE_ORDER_SUCCESS_INFO= "[%1$s]号任务汇报生成成功，B1单据号[%2$s]";
 
-    public final static String SBO_CREATE_ORDER_FAILED_INFO = "[%1$d]号任务汇报生成失败，失败原因：%2$s";
+    public final static String SBO_CREATE_ORDER_FAILED_INFO = "[%1$s]号任务汇报生成失败，失败原因：%2$s";
 
     public final static String SBO_DOCUMENT_CALLBACK_EXCEPTION="[%1]号汇报回写发生异常:%2";
 
