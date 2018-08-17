@@ -19,8 +19,7 @@
     <!-- ********************************* 基础配置 ********************************* -->
 
     <!-- 配置01、JobHandler 扫描路径 -->
-    <context:component-scan base-package="org.edi.businessone.job" />
-    <context:component-scan base-package="org.edi.businessone.repository" />
+    <context:component-scan base-package="org.edi.job.businessone" />
     <context:component-scan base-package="org.edi.stocktask.repository"></context:component-scan>
     <context:component-scan base-package="org.edi.stocktask.util"></context:component-scan>
 

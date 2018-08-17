@@ -5,13 +5,13 @@ package org.edi.job.data;
  * @date 2018/8/16
  */
 public class DocumentSyncResult {
-    public String code;
+    private String code;
 
     public String getCode(){return code;}
 
     public void setCode(String code){this.code = code;}
 
-    public String uniquekey;
+    private String uniquekey;
 
     public String getUniquekey(){return uniquekey;}
 
@@ -19,7 +19,7 @@ public class DocumentSyncResult {
         this.uniquekey = uniquekey;
     }
 
-    public String message;
+    private String message;
 
     public String getMessage(){
         return message;
@@ -29,7 +29,7 @@ public class DocumentSyncResult {
         this.message = message;
     }
 
-    public String returnEntry;
+    private String returnEntry;
 
     public String getReturnEntry(){return returnEntry;}
 
