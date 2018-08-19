@@ -54,13 +54,13 @@ public class StockDocumentJobHandler extends IJobHandler {
                             XxlJobLogger.log(String.format(JobOpResultDescription.SBO_CREATE_ORDER_FAILED_INFO,item.getUniquekey(),item.getMessage()));
                         }else{
                             XxlJobLogger.log(String.format(JobOpResultDescription.SBO_CREATE_ORDER_SUCCESS_INFO,item.getUniquekey(),item.getReturnEntry()));
-                            stockReport = ListUtil.find(stockReports,Integer.valueOf(item.getUniquekey()));
-                            if(stockReport !=null) {
-                                stockReport.setB1DocEntry(item.getReturnEntry());
-                                stockReport.setDocumentStatus("C");
-                                boRepositoryStockReport.updateStockReportDocStatus(stockReport);
-                                XxlJobLogger.log(JobOpResultDescription.SBO_DOCUMENT_CALLBACK_SUCCESS,item.getUniquekey());
-                            }
+//                            stockReport = ListUtil.find(stockReports,Integer.valueOf(item.getUniquekey()));
+//                            if(stockReport !=null) {
+//                                stockReport.setB1DocEntry(item.getReturnEntry());
+//                                stockReport.setDocumentStatus("C");
+//                                boRepositoryStockReport.updateStockReportDocStatus(stockReport);
+//                                XxlJobLogger.log(JobOpResultDescription.SBO_DOCUMENT_CALLBACK_SUCCESS,item.getUniquekey());
+//                            }
                         }
 
 
