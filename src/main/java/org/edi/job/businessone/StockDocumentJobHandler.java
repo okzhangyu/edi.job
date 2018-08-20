@@ -6,13 +6,12 @@ import com.xxl.job.core.biz.model.ReturnT;
 import com.xxl.job.core.handler.IJobHandler;
 import com.xxl.job.core.handler.annotation.JobHandler;
 import com.xxl.job.core.log.XxlJobLogger;
-import org.edi.freamwork.data.operation.IOpResult;
+import org.edi.freamwork.data.Result;
 import org.edi.freamwork.data.operation.OpResult;
+import org.edi.freamwork.httpclient.HttpRequest;
 import org.edi.job.data.DocumentSyncResult;
 import org.edi.job.data.JobData;
 import org.edi.job.data.JobOpResultDescription;
-import org.edi.job.util.HttpRequest;
-import org.edi.job.util.ListUtil;
 import org.edi.stocktask.bo.stockreport.StockReport;
 import org.edi.stocktask.repository.BORepositoryStockReport;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,11 +43,11 @@ public class StockDocumentJobHandler extends IJobHandler {
                 String orderJson = gson .toJson(stockReports);
                 String resultMsg = HttpRequest.post(orderJson);
                 XxlJobLogger.log(resultMsg);
-                OpResult<DocumentSyncResult> resultOpResult = gson.fromJson(resultMsg,new TypeToken<OpResult<DocumentSyncResult>>(){}.getType());
+                Result<DocumentSyncResult> resultOpResult = gson.fromJson(resultMsg,new TypeToken<Result<DocumentSyncResult>>(){}.getType());
                 if(!JobData.OK.equals(resultOpResult.getCode())){
                     XxlJobLogger.log(JobOpResultDescription.SBO_DOCUMENT_CALL_SERVICE_ERROR,resultOpResult.getMessage());
                 }
-                for (DocumentSyncResult item:resultOpResult.getResultObject()) {
+                for (DocumentSyncResult item:resultOpResult.getData()) {
                     try{
                         if(!JobData.OK.equals(item.getCode())){
                             XxlJobLogger.log(String.format(JobOpResultDescription.SBO_CREATE_ORDER_FAILED_INFO,item.getUniquekey(),item.getMessage()));
