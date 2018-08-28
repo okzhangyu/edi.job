@@ -7,7 +7,6 @@ import com.xxl.job.core.handler.IJobHandler;
 import com.xxl.job.core.handler.annotation.JobHandler;
 import com.xxl.job.core.log.XxlJobLogger;
 import org.edi.freamwork.data.Result;
-import org.edi.freamwork.data.operation.OpResult;
 import org.edi.freamwork.httpclient.HttpRequest;
 import org.edi.job.data.DocumentSyncResult;
 import org.edi.job.data.JobData;
@@ -53,13 +52,6 @@ public class StockDocumentJobHandler extends IJobHandler {
                             XxlJobLogger.log(String.format(JobOpResultDescription.SBO_CREATE_ORDER_FAILED_INFO,item.getUniquekey(),item.getMessage()));
                         }else{
                             XxlJobLogger.log(String.format(JobOpResultDescription.SBO_CREATE_ORDER_SUCCESS_INFO,item.getUniquekey(),item.getReturnEntry()));
-//                            stockReport = ListUtil.find(stockReports,Integer.valueOf(item.getUniquekey()));
-//                            if(stockReport !=null) {
-//                                stockReport.setB1DocEntry(item.getReturnEntry());
-//                                stockReport.setDocumentStatus("C");
-//                                boRepositoryStockReport.updateStockReportDocStatus(stockReport);
-//                                XxlJobLogger.log(JobOpResultDescription.SBO_DOCUMENT_CALLBACK_SUCCESS,item.getUniquekey());
-//                            }
                         }
 
 
